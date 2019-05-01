@@ -1,0 +1,202 @@
+Original link of the content
+
+
+1.  Change the resource in the .apk
+
+Open the .apk file with WinRAR (if that doesn’t work, rename the file extension .apk to .zip)
+
+Change the resource in the archive as desired (packager tools allow to change files without the need to extract the archive)
+
+Once you’re done with your changes, you have to take care about the signature files that are part of the .apk:
+
+Inside the archive, go to folder META-INF
+
+Delete the existing *.RSA and *.SF files
+
+The following screenshot displays the content of the META-INF folder in an .apk file:
+
+delete_old_certs.JPG
+
+Now the archive can be closed.
+
+In case you had changed the file extension before, you now have to change it back to .apk
+
+2. Sign the .apk
+
+Signing the .apk is done in 2 steps:
+
+a) create the certificate
+
+b) sign the .apk with the created certificate
+
+Both steps are done with commands on the command line
+
+a) Generate a certificate
+
+
+
+If you’re working in a Java environment, you have the JDK on your file system.
+
+The JDK comes with a tool to manage certificates: the keytool.
+
+You can find it in the …/bin folder of your JDK installation.
+
+Example:
+
+On my machine it is here:
+
+keytool.JPG
+
+Now you can generate a certificate using below command.
+
+However, before executing it, please check the notes below, in order to adapt the parameters
+
+keytool.exe -genkey -v -keystore <myKeystore> -alias <myAlias> -sigalg MD5withRSA -keyalg RSA -keysize 2048 -validity 1000
+
+
+
+
+Please note that you have to adapt some of the parameters of the above command to your personal needs:
+
+keystore <myKeystore>
+
+Here, you can provide an arbitrary name for your keystore.
+
+The name that you provide here will be the name of the keystore-file that will be created.
+
+The file will be created in the current directory.
+
+(I haven’t tried it, but probably you can enter the name of an existing keystore file, in order to store the new certificate there)
+
+alias <myAlias>
+
+Here as well, you can provide an arbitrary name for the alias.
+
+It is meant for you to recognize it.
+
+The alias is the human readable name of the certificate which will be created and stored in the keystore.
+
+validity 1000
+
+This is the number of desired days.
+
+You can enter any number you wish.
+
+I think it should be high enough in order to avoid trouble with expiration.
+
+Note that the parameters sigalg and keyalg are required by JDK 7, so it shouldn’t be necessary to add them if you’re using JDK 6
+
+Example:
+
+keytool.exe -genkey -v -keystore mykeystore -alias myAlias -sigalg MD5withRSA -keyalg RSA -keysize 2048 -validity 10000
+
+
+
+
+When executing the command, you’ll get several prompts on the command line, asking for password, username, organization, city, etc
+
+You can enter any arbitrary data here, you only have to make sure to remember the password.
+
+After you’ve executed the command, you’ll see the generated keystore file on your file system in the current directory (from where you’ve executed the command)
+
+Now you can proceed with signing the .apk using the newly created certificate.
+
+b) Sign the apk
+
+Before signing the .apk file, you have to make sure that there are no certificates available in the .apk.
+
+This is described in step 1 above.
+
+For signing an archive, we use the jarsigner tool, which is provided with JDK, and which can be found in the same location like the keytool.
+
+The following  command is used for signing an apk.
+
+jarsigner -verbose  -sigalg MD5withRSA -digestalg SHA1 -keystore <keystoreName> <appName> <alias>
+
+
+
+
+Please note that you have to adapt some of the parameters of the above command to fit your personal needs:
+
+keystore <keystoreName>
+
+Here you have to enter the name that you have given in the previous step a)
+
+In order to keep the command line short, I recommend to temporarily copy the keystore file to the same location where you’re executing the command.
+
+<appName>
+
+Here you have to enter the name of the apk file which you want to sign
+
+In order to keep the command line short, I recommend to temporarily copy the .apk file to the same location where you’re executing the command.
+
+<alias>
+
+Here you have to enter the name of the alias that you’ve provided when generating the certificate
+
+Note that the parameters sigalg and digestalg are required by JDK 7, so it shouldn’t be necessary to add them if you’re using JDK 6
+
+Example:
+
+jarsigner -verbose  -sigalg MD5withRSA -digestalg SHA1 -keystore mykeystore myApp.apk myAlias
+
+
+
+
+After you’ve executed the command, you can check the result inside the .apk file:
+
+Open the archive, go to the folder …/META-INF and check if the files CERT.RSA and CERT.SF have been created.
+
+3. Install the apk on the device
+
+Now that the .apk file is signed, you can install it on your device.
+
+BTW: This procedure is also called side-load.
+
+For Android applications the installation is done on the command line, using the adb command.
+
+adb stands for Android Debug Bridge
+
+adb.exe is a piece of software that connects the PC with the Android device.
+
+It allows access to the device, allows to trigger operations, transfer files, etc.
+
+In order to install the .apk on the device, you have to connect the device to your PC via USB cable,
+
+then execute following command
+
+adb install <appName>
+
+
+
+
+In order to keep the command line short, you can temporarily copy the apk file to the same location where you’re executing the command.
+
+Example:
+
+adb install myApp.apk
+
+
+
+
+The result should be “success” message on command prompt.
+
+If not, any of the previous steps may have failed.
+
+That’s it.
+
+You can find the application in the apps folder of your smartphone.
+
+This procedure worked for me on WIN7 and JDK 7.
+
+It wasn’t required to rebuild the app, nor to generate new checksum or similar.
+
+Links
+
+Please refer to the following documents for lot of information for beginners.
+
+They also contain lots of additional links for further reading.
+
+[1] Getting started with GWPA: Prerequisites: http://scn.sap.com/docs/DOC-52235
+
+[2] Getting started with GWPA: Android Preparation: http://scn.sap.com/docs/DOC-52371
