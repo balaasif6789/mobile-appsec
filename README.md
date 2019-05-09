@@ -34,8 +34,13 @@ https://kov4l3nko.github.io/blog/2018-08-14-trustkit-bypass/
 https://medium.com/bugbountywriteup/how-to-bypass-certificate-validation-ssl-pinning-ef8af8b15c40
 
 
-<h3><b>Using Frida <b><h3>
+b>Using Frida <b>
  https://github.com/theart42/hack.lu/blob/master/Workshop/Using%20Frida%20on%20Android%20without%20root%20%C2%B7%20John%20Kozyrakis%20~%20blog.pdf
+ <br>
+ https://medium.com/@buff3r/root-detection-ssl-pinning-bypass-with-frida-framework-31769d31723a
+ <br>
+ https://koz.io/using-frida-on-android-without-root/
+  
   
   
 
