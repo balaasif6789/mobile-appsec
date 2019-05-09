@@ -32,3 +32,13 @@ https://github.com/nabla-c0d3/ssl-kill-switch2
 https://kov4l3nko.github.io/blog/2018-08-14-trustkit-bypass/
 <br>
 https://medium.com/bugbountywriteup/how-to-bypass-certificate-validation-ssl-pinning-ef8af8b15c40
+
+
+<h1><b>Using Frida <b><h1>
+ https://github.com/theart42/hack.lu/blob/master/Workshop/Using%20Frida%20on%20Android%20without%20root%20%C2%B7%20John%20Kozyrakis%20~%20blog.pdf
+  
+  
+
+
+Tools download links: <br>
+Zip align https://forum.xda-developers.com/showthread.php?t=2214583
