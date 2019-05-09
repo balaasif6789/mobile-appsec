@@ -1,0 +1,68 @@
+Original  link: http://jaym2503.blogspot.com/2014/08/how-to-modify-signed-apk-resources.html
+
+How to Modify signed APK resources?
+Here is a interesting thing!! How to modify already signed APK file.
+
+Most of the cases you won't need this things but it's very important when you working on application which requires dynamic resources changes.
+
+Here we go...
+
+Step 1: Create Signed APK
+Let's create a APK file as we are doing normally with all our projects...
+
+
+ 
+Export Signed APK
+
+Step 2: Create ZIP from APK
+Locate your APK file and just rename and add/change it's extension to ".zip"
+
+ 
+Rename to ".zip"
+
+
+Step 3: Extract and remove existing signatures
+
+Extract your zip file
+Locate META-INF folder, and remove it
+
+ 
+Remove signatures
+
+
+Step 4: Modify APK Resources
+Now you can modify any resources, in our example I have modified app_icon.png file, but make sure when you modify your resource keep same name of file, because name is being used in your code.
+
+ 
+Modify Resources
+
+Step 5: Create a ZIP again.
+Select all your file (DO NOT zip your folder, you must need to select all files like below screenshot) and zip using any zip utility tool.
+
+
+Zip again
+
+
+Step 6: Rename ZIP file to APK back
+Rename your ZIP file to APK again.
+
+ 
+Rename to APK again
+Step 7: Resign APK
+Now you need to resign your APK using keystore, passwords and jarsigner tool.
+FYI: jarsigner can be find under java installation.
+
+jarsigner -verbose -keystore <PATH_TO_KEYSTORE> -storepass <KEYSTORE_PASSWORD> <PATH_TO_APK> <ALIAS_OF_KEYSTORE>
+
+
+Step 8: Zipalign APK
+If you want to publish your APK to Google Play Store, you must need to zipalign it.
+Zipalign is command line tool and can be found under android sdk's tools folder.
+
+zipalign -v 4 <APK_FILE_LOCATION> <NEW_PATH_OF_APK>
+
+e.g. zipalign -v 4 Example.apk Example_signed_zipaligned.apk
+
+Step 9: Test your APK
+Don't forget to test your APK!!!
+Example_signed_zipaligned.apk is final modified APK in our example.
