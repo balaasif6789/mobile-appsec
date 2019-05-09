@@ -15,3 +15,9 @@ JEB - Professional tool for reversing android (and many other) applications http
 Also look promising:
 
 APK Studio - IDE for reverse-engineering (decompiling/editing) & recompiling of Android applications https://forum.xda-developers.com/showthread.php?t=2493107
+
+
+
+<b>iOS tools <b>
+
+Burp SSL pinning bypass https://infosecninja.blogspot.com/2017/05/working-with-burpsuite-mobile-assistant.html
