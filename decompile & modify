@@ -1,0 +1,43 @@
+Yes, it is possible and it is exactly what happens when an app is put on black market. Of course this happens especially to people who don't care about securing their apk
+
+I'll follow your steps giving you a highlight point by point but you are totally responsible of what you will end up doing with all of this
+
+1) decompile a signed apk
+
+This step is usually centered on applying the apktool command on the original apk:
+
+apktool d app_to_tamper.apk
+This will generate a folder, say the app_to_tamper_folder
+
+2) modify its code -> I'm not gonna add anything here
+
+3) recompile
+
+This step is usually centered on applying the next apktool command on the modified apk [actually on its folder]:
+
+apktool b app_to_tamper_folder
+From the last command you will get back an unsigned tampered_app.apk produced in the app_to_tamper_folder/dist directory
+
+4) sign it
+
+First of all you MUST sign the tampered_app.apk or once you will try to run it on your phone it will not work. There are at least two methods to do this. The most common is based on this command:
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $YOUR-KEY-STORE-PATH  $UNSIGN-APK-PATH $ALIAS-NAME
+so for example [here I'm signing with the debug.keystore]:
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore debug.keystore tampered_app.apk androiddebugkey
+Optionally you can verify the apk
+
+jarsigner -verify -verbose -certs $UNSIGN-APK-PATH
+5) optimize it
+
+This step is based on a tool called zipalign and the following command:
+
+zipalign -v 4 $UNSIGN-APK-PATH $OUTPUT-APK-PATH
+so for example:
+
+zipalign -v 4 tampered_app.apk final_tampered_app.apk
+Basically it aligns all the uncompressed data within the APK, such as images or raw files. This will reduce in the amount of RAM consumed when running the application. More info can be found on the Android official documentation here. Please note that depending on the tool you will choose to sign you may have to apply this command with a different timeline
+
+At this point you got the final_tampered_app.apk which is ready to be installed and run on phone
+
