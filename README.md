@@ -1,11 +1,11 @@
 # mobileappsec
 
-Online scanner 
+<b>Online scanner <b>
 1. http://www.javadecompilers.com/       online decompiler 
 
 
 
-Offline tools 
+<b> Offline tools <b>
 
 JADX - GUI (and Command line) to produce Java source code from Android Dex and Apk files https://github.com/skylot/jadx
 Android MultiTool - decompile/recompile and sign applications + jar framework files https://forum.xda-developers.com/showthread.php?t=2326604
@@ -20,4 +20,15 @@ APK Studio - IDE for reverse-engineering (decompiling/editing) & recompiling of 
 
 <b>iOS tools <b>
 
-Burp SSL pinning bypass https://infosecninja.blogspot.com/2017/05/working-with-burpsuite-mobile-assistant.html
+Burp SSL pinning bypass<br> 
+https://infosecninja.blogspot.com/2017/05/working-with-burpsuite-mobile-assistant.html  
+<br>
+https://portswigger.net/burp/documentation/desktop/mobile-testing
+<br>
+https://blog.netspi.com/four-ways-to-bypass-ios-ssl-verification-and-certificate-pinning/
+<br>
+https://github.com/nabla-c0d3/ssl-kill-switch2
+<br>
+https://kov4l3nko.github.io/blog/2018-08-14-trustkit-bypass/
+<br>
+https://medium.com/bugbountywriteup/how-to-bypass-certificate-validation-ssl-pinning-ef8af8b15c40
