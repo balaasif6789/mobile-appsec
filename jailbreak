@@ -1,0 +1,47 @@
+This jailbreak is for iOS 12.1.2. I have used iphone 6.
+
+1. Download the jailbreak .ipa application from the below link : 
+https://github.com/pwn20wndstuff/Undecimus/releases
+
+Download the v3.0.1 
+
+2. We will need to sideload the ipa file. For this we will need a tool called cydia impactor.
+Download the same from below link <br>
+http://www.cydiaimpactor.com/
+
+3. Run the cydia impactor tool. Drag and drop the ipa file downloaded from step 1 into the cydia impactor. You will need to
+provide an Apple id and password.
+
+4. Once the unc0ver has been side loaded head over to Settings > General > Device Management and make sure the profile is 
+trusted for unc0ver app that you just sideloaded.
+
+5.Run the unc0ver app. Tap the jailbreak button 
+
+Important things you may know before start the jailbreak.  
+•	Delete OTA update <br>
+•	Some of few repos may not functioning.<br>
+•	Airplane Mode should be enabled.  ( works even if not enabled) <br>
+•	Siri & Touch ID should be disable. <br>
+•	Before start the jailbreak process, restart the device.<br>
+
+
+That’s about it. You can now launch Cydia and enjoy the jailbreak! Keep in mind that just like all the recent jailbreak <br> 
+releases, this one too is semi-untethered in nature which means you will have to put the device into jailbreak mode after <br>
+every reboot of the device. You can put the device in jailbreak mode by simply running the unc0ver app and then re-jailbreaking.<br> 
+Also important to note is that you will have to resign and resideload unc0ver app after every seven days as the free Apple ID <br>
+certificate which you used to sideload with Cydia Impactor lasts for only seven days only.
+
+
+
+Imp links <br>
+https://pangu8.com/jailbreak/12.1/#unc0ver <br>
+https://github.com/pwn20wndstuff/Undecimus/releases <br>
+https://www.redmondpie.com/sideload-ios-apps-on-windows-mac-with-cydia-impactor-without-jailbreak-heres-how/ <br>
+https://www.redmondpie.com/jailbreak-ios-12-12.1.2-12.1.2-beta-3-with-unc0ver-and-install-cydia-heres-how-tutorial/ <br>
+
+
+
+
+
+
+
