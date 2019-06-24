@@ -17,6 +17,24 @@ trusted for unc0ver app that you just sideloaded.
 
 5.Run the unc0ver app. Tap the jailbreak button 
 
+6. After every restart of the device the device needs to be jailbroken. 
+
+7. We will need to sideload the Unc0ver application again. when doing this with our apple id and password we get an error saying 
+"provision.cpp: 150 Please Sign in With App-Specific Password” 
+We will create an app specific password by logging in to the portal https://appleid.apple.com/#!&page=signin.
+We then Click Security>Edit
+Click APP SPECIFIC PASSWORDS
+Click Generate Password
+Type a label, remember what it is
+Click Create, and you will get a new password generated
+Copy to clipboard and, when you use Cydia Impactor, that is the password to use with your Apple ID
+
+8. We will sideload the unc0ver app and jailbreak again. Before jailbreaking we will make the following configurations:
+
+a. uncheck Refresh System Deamons
+b. check Reinstall cydia 
+Then we will tap on jailbreak to jailbreak the device. 
+
 Important things you may know before start the jailbreak.  
 •	Delete OTA update <br>
 •	Some of few repos may not functioning.<br>
@@ -25,10 +43,10 @@ Important things you may know before start the jailbreak.
 •	Before start the jailbreak process, restart the device.<br>
 
 
-That’s about it. You can now launch Cydia and enjoy the jailbreak! Keep in mind that just like all the recent jailbreak <br> 
-releases, this one too is semi-untethered in nature which means you will have to put the device into jailbreak mode after <br>
-every reboot of the device. You can put the device in jailbreak mode by simply running the unc0ver app and then re-jailbreaking.<br> 
-Also important to note is that you will have to resign and resideload unc0ver app after every seven days as the free Apple ID <br>
+That’s about it. You can now launch Cydia and enjoy the jailbreak! Keep in mind that just like all the recent jailbreak  
+releases, this one too is semi-untethered in nature which means you will have to put the device into jailbreak mode after 
+every reboot of the device. You can put the device in jailbreak mode by simply running the unc0ver app and then re-jailbreaking. 
+Also important to note is that you will have to resign and resideload unc0ver app after every seven days as the free Apple ID 
 certificate which you used to sideload with Cydia Impactor lasts for only seven days only.
 
 
@@ -38,7 +56,8 @@ https://pangu8.com/jailbreak/12.1/#unc0ver <br>
 https://github.com/pwn20wndstuff/Undecimus/releases <br>
 https://www.redmondpie.com/sideload-ios-apps-on-windows-mac-with-cydia-impactor-without-jailbreak-heres-how/ <br>
 https://www.redmondpie.com/jailbreak-ios-12-12.1.2-12.1.2-beta-3-with-unc0ver-and-install-cydia-heres-how-tutorial/ <br>
-
+https://tweak-box.com/cydia-impactor/
+https://www.youtube.com/watch?v=Wg2C-PX5efs
 
 
 
